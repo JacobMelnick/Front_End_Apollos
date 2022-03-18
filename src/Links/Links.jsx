@@ -10,8 +10,6 @@ const Links = () => {
 
   useEffect(() => {
     if (data) {
-      console.log(data);
-
       setLinkData(data.list);
     }
   }, [data]);

@@ -9,12 +9,27 @@ import {
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import Form from "../LinkHeader/Form/Form";
-const LinkHeader = ({ originalUrl, setOriginalUrl }) => {
+import shadows from "@mui/material/styles/shadows";
+const LinkHeader = ({
+  originalUrl,
+  setOriginalUrl,
+  setShortUrl,
+  setLongUrl,
+  longUrl,
+  ShortUrl
+}) => {
   return (
     <Grid container justifyContent="center" alignItems="center">
       <AppBar position="static" style={{ padding: 10, background: "#87ceeb" }}>
         <Toolbar>
-          <Form setOriginalUrl={setOriginalUrl} originalUrl={originalUrl} />
+          <Form
+            longUrl={longUrl}
+            ShortUrl={ShortUrl}
+            setLongUrl={setLongUrl}
+            setShortUrl={setShortUrl}
+            setOriginalUrl={setOriginalUrl}
+            originalUrl={originalUrl}
+          />
         </Toolbar>
       </AppBar>
     </Grid>

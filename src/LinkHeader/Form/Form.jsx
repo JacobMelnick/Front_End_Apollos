@@ -2,7 +2,15 @@ import react from "react";
 import { TextField, Button } from "@mui/material";
 import { useMutation } from "@apollo/client";
 import { CREATE_URL } from "../../graphql/mutation";
-const Form = ({ originalUrl, setOriginalUrl }) => {
+const Form = ({
+  originalUrl,
+  setOriginalUrl,
+  setShortUrl,
+  setLongUrl,
+  shortUrl,
+  longUrl
+}) => {
+  const obj = {};
   const [createLink] = useMutation(CREATE_URL, {
     refetchQueries: ["getAllLink"]
   });
@@ -13,6 +21,15 @@ const Form = ({ originalUrl, setOriginalUrl }) => {
     }
   };
 
+  const handleShort = (e) => {
+    e.preventDefault();
+    setShortUrl("ReLinky/" + originalUrl.replace(/[^a-z]/g, "").slice(-4));
+    console.log(shortUrl);
+    if (!obj[shortUrl]) {
+      obj[shortUrl] = longUrl;
+    }
+    return shortUrl;
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
     if (originalUrl === "") {
@@ -23,6 +40,8 @@ const Form = ({ originalUrl, setOriginalUrl }) => {
         url: originalUrl
       }
     });
+
+    setOriginalUrl("");
   };
   return (
     <form
@@ -53,7 +72,10 @@ const Form = ({ originalUrl, setOriginalUrl }) => {
         variant="outlined"
         size="small"
         type="submit"
-        onClick={handleSubmit}
+        onClick={(e) => {
+          handleSubmit(e);
+          handleShort(e);
+        }}
       >
         Shorten Url
       </Button>
