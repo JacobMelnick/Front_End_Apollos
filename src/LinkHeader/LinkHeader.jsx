@@ -16,7 +16,9 @@ const LinkHeader = ({
   setShortUrl,
   setLongUrl,
   longUrl,
-  ShortUrl
+  ShortUrl,
+  slug,
+  setSlug
 }) => {
   return (
     <Grid container justifyContent="center" alignItems="center">
@@ -29,6 +31,8 @@ const LinkHeader = ({
             setShortUrl={setShortUrl}
             setOriginalUrl={setOriginalUrl}
             originalUrl={originalUrl}
+            slug={slug}
+            setSlug={setSlug}
           />
         </Toolbar>
       </AppBar>

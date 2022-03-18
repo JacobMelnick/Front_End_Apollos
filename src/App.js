@@ -6,6 +6,7 @@ import Header from "../src/Header/Header";
 import { useState } from "react";
 export default function App() {
   const [originalUrl, setOriginalUrl] = useState("");
+  const [slug, setSlug] = useState("");
   const [longUrl, setLongUrl] = useState("");
   const [shortUrl, setShortUrl] = useState("");
   return (
@@ -18,7 +19,9 @@ export default function App() {
         setShortUrl={setShortUrl}
         originalUrl={originalUrl}
         setOriginalUrl={setOriginalUrl}
-      />
+        setSlug={setSlug}
+        slug={slug}
+      ></LinkHeader>
       <Links shortUrl={shortUrl} longUrl={longUrl} />
     </div>
   );

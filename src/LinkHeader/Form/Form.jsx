@@ -6,9 +6,10 @@ const Form = ({
   originalUrl,
   setOriginalUrl,
   setShortUrl,
-  setLongUrl,
   shortUrl,
-  longUrl
+  longUrl,
+  slug,
+  setSlug
 }) => {
   const obj = {};
   const [createLink] = useMutation(CREATE_URL, {
@@ -18,6 +19,9 @@ const Form = ({
     const { name, value } = e.target;
     if (name === "url") {
       setOriginalUrl(value);
+    }
+    if (name === "slug") {
+      setSlug(value);
     }
   };
 
@@ -35,13 +39,18 @@ const Form = ({
     if (originalUrl === "") {
       alert("Please enter Url");
     }
+    if (slug.length <= 3) {
+      alert("invalid Slug");
+    }
     createLink({
       variables: {
+        id: slug,
         url: originalUrl
       }
     });
 
     setOriginalUrl("");
+    setSlug("");
   };
   return (
     <form
@@ -64,7 +73,8 @@ const Form = ({
         name="slug"
         id="slug"
         label="Custom Slug"
-        value="url"
+        onChange={handleChange}
+        value={slug}
       />
       <Button
         style={{ margin: 15 }}

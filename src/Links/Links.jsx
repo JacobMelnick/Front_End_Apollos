@@ -15,14 +15,15 @@ const Links = () => {
   }, [data]);
   return (
     <Grid
-      style={{ padding: 10, margin: 10 }}
+      style={{ padding: 10, margin: 10, maxWidth: "100%" }}
       container
       justifyContent="center"
       alignItems="center"
       direction="column"
-      spacing={2}
     >
-      <Link linkData={linkData} />
+      <Grid item xs={12}>
+        <Link linkData={linkData} />
+      </Grid>
     </Grid>
   );
 };

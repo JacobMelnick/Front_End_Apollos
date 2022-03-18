@@ -1,8 +1,9 @@
 import { gql } from "@apollo/client";
 
 export const CREATE_URL = gql`
-  mutation createLink($url: String!) {
-    createLink(url: $url) {
+  mutation createLink($id: String, $url: String!) {
+    createLink(id: $id, url: $url) {
+      id
       url
     }
   }
