@@ -12,12 +12,9 @@ import Form from "../LinkHeader/Form/Form";
 const LinkHeader = ({ originalUrl, setOriginalUrl }) => {
   return (
     <Grid container justifyContent="center" alignItems="center">
-      <AppBar position="static" style={{ padding: 10 }}>
+      <AppBar position="static" style={{ padding: 10, background: "#87ceeb" }}>
         <Toolbar>
           <Form setOriginalUrl={setOriginalUrl} originalUrl={originalUrl} />
-          <Button color="inherit" variant="outlined" size="small">
-            Shorten Url
-          </Button>
         </Toolbar>
       </AppBar>
     </Grid>
