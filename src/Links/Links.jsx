@@ -22,6 +22,7 @@ const Links = () => {
       justifyContent="center"
       alignItems="center"
       direction="column"
+      spacing={2}
     >
       <Link linkData={linkData} />
     </Grid>

@@ -5,11 +5,10 @@ const Link = ({ linkData }) => {
   return (
     <Grid>
       {linkData.length > 0 &&
-        linkData.map((link) => {
-          // console.log(link.url);
+        linkData.map((link, id) => {
           return (
-            <Grid item xs={4} lg={12} md={9}>
-              {link.url}
+            <Grid key={id} item xs={12} lg={12} md={9} style={{ padding: 10 }}>
+              {link.url} ---> {link.url}
             </Grid>
           );
         })}

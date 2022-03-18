@@ -1,6 +1,6 @@
 import react from "react";
 import { TextField } from "@mui/material";
-const Form = () => {
+const Form = ({ originalUrl, setOriginalUrl }) => {
   return (
     <form>
       <TextField
@@ -9,7 +9,7 @@ const Form = () => {
         name="url"
         id="url"
         label="Long Url"
-        value="url"
+        value={originalUrl}
       />
       <TextField
         style={{ padding: 10 }}
